@@ -4,50 +4,168 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Кето меню — Анапа</title>
+
 <style>
-body{font-family:Arial;margin:0;background:#f5f2ea}
-.wrap{max-width:700px;margin:auto;padding:20px}
-.card{background:white;padding:20px;border-radius:20px;margin-bottom:15px}
-a{display:block;padding:15px;background:#e8f3ea;border-radius:15px;margin-bottom:10px;text-decoration:none;color:black}
-h1{margin-top:0}
+body{
+margin:0;
+font-family:-apple-system, Arial;
+background:#f4efe6;
+}
+
+.wrap{
+max-width:720px;
+margin:auto;
+padding:16px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+padding:18px;
+margin-bottom:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+h1{
+margin:0 0 10px;
+font-size:28px;
+}
+
+h2{
+margin:0 0 10px;
+}
+
+.btn{
+display:block;
+background:#dfeae2;
+padding:14px;
+border-radius:14px;
+margin-bottom:10px;
+text-decoration:none;
+color:black;
+font-weight:600;
+}
+
+.meal{
+margin-bottom:12px;
+}
+
+.time{
+font-weight:700;
+}
+
+details{
+background:#f8f8f8;
+border-radius:12px;
+padding:10px;
+margin-top:6px;
+}
+
+summary{
+font-weight:600;
+cursor:pointer;
+}
+
+.top{
+position:fixed;
+bottom:10px;
+left:10px;
+right:10px;
+}
+
+.top a{
+display:block;
+background:#2e6f4d;
+color:white;
+text-align:center;
+padding:14px;
+border-radius:14px;
+text-decoration:none;
+}
 </style>
 </head>
 
 <body>
-<div class="wrap">
+
+<div class="wrap" id="menu">
 
 <div class="card">
 <h1>🥑 Кето меню — Анапа</h1>
-<p>Обед 12:00 · Ужин 18:00 · Без говядины</p>
+Обед 12:00 · Ужин 18:00 · Без говядины
 </div>
 
 <div class="card">
-<a href="#mon">Понедельник</a>
-<a href="#tue">Вторник</a>
-<a href="#wed">Среда</a>
+<a class="btn" href="#mon">Понедельник</a>
+<a class="btn" href="#tue">Вторник</a>
+<a class="btn" href="#wed">Среда</a>
 </div>
 
 <div class="card" id="mon">
 <h2>Понедельник</h2>
-<p><b>12:00</b> Курица + кабачок</p>
-<p><b>18:00</b> Скумбрия + салат</p>
-<a href="#">⬆ Назад</a>
+
+<div class="meal">
+<div class="time">12:00 Курица + кабачок</div>
+
+<details>
+<summary>Граммовка</summary>
+Курица 200г<br>Кабачок 200г<br>Масло 20г
+</details>
+
+<details>
+<summary>Рецепт</summary>
+Обжарить курицу → добавить кабачок → в конце масло
+</details>
+
+</div>
+
+<div class="meal">
+<div class="time">18:00 Скумбрия + салат</div>
+
+<details>
+<summary>Граммовка</summary>
+Скумбрия 200г<br>Огурец 150г<br>Масло 15г
+</details>
+
+<details>
+<summary>Рецепт</summary>
+Запечь 20 минут → нарезать салат → добавить масло
+</details>
+
+</div>
+
 </div>
 
 <div class="card" id="tue">
 <h2>Вторник</h2>
-<p><b>12:00</b> Индейка + грибы</p>
-<p><b>18:00</b> Кефаль + огурец</p>
-<a href="#">⬆ Назад</a>
+
+<div class="meal">
+<div class="time">12:00 Индейка + грибы</div>
+</div>
+
+<div class="meal">
+<div class="time">18:00 Кефаль + огурец</div>
+</div>
+
 </div>
 
 <div class="card" id="wed">
 <h2>Среда</h2>
-<p><b>12:00</b> Свинина + капуста</p>
-<p><b>18:00</b> Омлет + сыр</p>
-<a href="#">⬆ Назад</a>
+
+<div class="meal">
+<div class="time">12:00 Свинина + капуста</div>
+</div>
+
+<div class="meal">
+<div class="time">18:00 Омлет + сыр</div>
 </div>
 
 </div>
+
+</div>
+
+<div class="top">
+<a href="#menu">⬆ К меню</a>
+</div>
+
 </body>
 </html>
