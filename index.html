@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Кето меню — Анапа</title>
+<title>Кето меню для Светули от Максима</title>
 
 <style>
 :root{
@@ -19,89 +19,39 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:radial-gradient(circle at top left,#eef7ec 0,#f4efe6 36%,#f4efe6 100%);
-  color:var(--text);
-}
-.wrap{max-width:760px;margin:0 auto;padding:18px 14px 92px}
-.hero{
-  background:linear-gradient(135deg,#ffffff 0%,#fff6e8 56%,#eaf5ec 100%);
-  border:1px solid var(--line);border-radius:28px;padding:24px 20px;margin-bottom:16px;
-  box-shadow:0 14px 34px rgba(63,45,24,.08);
-}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#eef7ec 0,#f4efe6 36%,#f4efe6 100%);color:var(--text)}
+.wrap{max-width:760px;margin:0 auto;padding:18px 14px 120px}
+.hero{background:linear-gradient(135deg,#ffffff 0%,#fff6e8 56%,#eaf5ec 100%);border:1px solid var(--line);border-radius:28px;padding:24px 20px;margin-bottom:16px;box-shadow:0 14px 34px rgba(63,45,24,.08)}
 .logo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .logo-mark{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:var(--green-soft);font-size:32px}
-h1{margin:0;font-size:34px;line-height:1.05;letter-spacing:-.8px}
-.subtitle{margin:10px 0 0;color:var(--muted);font-size:16px}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:14px;font-weight:700}
-.section{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:26px;padding:16px;margin-bottom:14px;box-shadow:0 8px 24px rgba(63,45,24,.06)}
-.section-title{margin:0 0 12px;font-size:20px}
-.day{background:var(--white);border:1px solid var(--line);border-radius:22px;margin-bottom:12px;overflow:hidden}
-.day > summary{list-style:none;cursor:pointer;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.day > summary::-webkit-details-marker{display:none}
-.day-title{display:flex;flex-direction:column;gap:3px}
-.day-name{font-size:20px;font-weight:800}
-.day-short{color:var(--muted);font-size:14px}
-.arrow{width:34px;height:34px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-weight:900;flex:0 0 auto}
-.day[open] .arrow{transform:rotate(90deg)}
-.day-body{padding:0 16px 16px}
+h1{margin:0;font-size:34px;line-height:1.05;letter-spacing:-.8px}.subtitle{margin:10px 0 0;color:var(--muted);font-size:16px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.badge{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:14px;font-weight:700}
+.section{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:26px;padding:16px;margin-bottom:14px;box-shadow:0 8px 24px rgba(63,45,24,.06)}.section-title{margin:0 0 12px;font-size:20px}
+.day{background:var(--white);border:1px solid var(--line);border-radius:22px;margin-bottom:12px;overflow:hidden}.day > summary{list-style:none;cursor:pointer;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.day > summary::-webkit-details-marker{display:none}
+.day-title{display:flex;flex-direction:column;gap:3px}.day-name{font-size:20px;font-weight:800}.day-short{color:var(--muted);font-size:14px}.arrow{width:34px;height:34px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-weight:900;flex:0 0 auto}.day[open] .arrow{transform:rotate(90deg)}.day-body{padding:0 16px 16px}
 .day-img{width:100%;border-radius:20px;margin:0 0 12px;display:block;border:1px solid var(--line);box-shadow:0 10px 24px rgba(63,45,24,.10);background:#f7efe3;aspect-ratio:16/10;object-fit:cover}
-.meal{background:#fbf7ef;border:1px solid #efe4d4;border-radius:18px;padding:14px;margin:10px 0}
-.meal-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.time{background:var(--green);color:white;border-radius:999px;padding:6px 10px;font-weight:800;font-size:13px;white-space:nowrap}
-.meal-title{font-size:17px;font-weight:800}
-.inner{background:white;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:8px}
-.inner summary{cursor:pointer;font-weight:800}
-.inner ul,.inner ol{margin:9px 0 0;padding-left:20px}
-.note{color:var(--muted);font-size:14px;margin:10px 2px 0}
-.shop-grid{display:grid;grid-template-columns:1fr;gap:10px}
-.shop-card{background:#fbf7ef;border:1px solid #efe4d4;border-radius:18px;padding:14px}
-.shop-card h3{margin:0 0 8px}.shop-card ul{margin:0;padding-left:20px}
-.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;max-width:736px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:20}
-.bottom-nav a{text-decoration:none;text-align:center;background:var(--green);color:white;border-radius:16px;padding:14px 10px;font-weight:800;box-shadow:0 10px 22px rgba(47,111,78,.25)}
-.bottom-nav a.secondary{background:#ffffff;color:var(--green);border:1px solid var(--line)}
-@media (min-width:680px){.wrap{padding:28px 20px 100px}h1{font-size:44px}.shop-grid{grid-template-columns:repeat(3,1fr)}}
+.meal{background:#fbf7ef;border:1px solid #efe4d4;border-radius:18px;padding:14px;margin:10px 0}.meal-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.time{background:var(--green);color:white;border-radius:999px;padding:6px 10px;font-weight:800;font-size:13px;white-space:nowrap}.meal-title{font-size:17px;font-weight:800}
+.inner{background:white;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:8px}.inner summary{cursor:pointer;font-weight:800}.inner ul,.inner ol{margin:9px 0 0;padding-left:20px}.note{color:var(--muted);font-size:14px;margin:10px 2px 0}
+.shop-grid{display:grid;grid-template-columns:1fr;gap:10px}.shop-card{background:#fbf7ef;border:1px solid #efe4d4;border-radius:18px;padding:14px}.shop-card h3{margin:0 0 8px}.shop-card ul{margin:0;padding-left:20px}
+.footer{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:22px;padding:16px;text-align:center;color:var(--muted);font-size:14px;line-height:1.45}.footer strong{color:var(--green)}
+.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;max-width:736px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:20}.bottom-nav a{text-decoration:none;text-align:center;background:var(--green);color:white;border-radius:16px;padding:14px 10px;font-weight:800;box-shadow:0 10px 22px rgba(47,111,78,.25)}.bottom-nav a.secondary{background:#ffffff;color:var(--green);border:1px solid var(--line)}
+@media (min-width:680px){.wrap{padding:28px 20px 120px}h1{font-size:44px}.shop-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
 <main class="wrap" id="top">
-<section class="hero">
-  <div class="logo">
-    <div class="logo-mark">🥑</div>
-    <div>
-      <h1>Кето меню — Анапа</h1>
-      <p class="subtitle">Меню на неделю. Завтрак, обед и ужин по времени.</p>
-    </div>
-  </div>
-  <div class="badges">
-    <div class="badge">☕ 9:00 — кофе + кетобомбы</div>
-    <div class="badge">🍽 12:00 — обед</div>
-    <div class="badge">🌙 18:00 — ужин</div>
-  </div>
-</section>
-<section class="section">
-  <h2 class="section-title">Открыть день</h2>
-  <details class="day" open>
-    <summary><div class="day-title"><div class="day-name">Понедельник</div><div class="day-short">Курица / скумбрия</div></div><div class="arrow">›</div></summary>
-    <div class="day-body">
-      <img src="images/monday.png" alt="Понедельник: кофе, кетобомбы, курица с кабачком, скумбрия и салат" class="day-img">
-      <div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div>
-      <div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Куриные бёдра + кабачок</div></div><details class="inner"><summary>Граммовка</summary><ul><li>Куриное бедро без кости — 180–220 г</li><li>Кабачок — 180–220 г</li><li>Сливочное масло — 20–25 г</li><li>Оливковое масло — 10 г</li></ul></details><details class="inner"><summary>Рецепт</summary><ol><li>Разогреть сковороду.</li><li>Обжарить курицу до корочки.</li><li>Добавить кабачок крупными полукольцами.</li><li>В конце добавить сливочное масло.</li></ol></details></div>
-      <div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Скумбрия + салат</div></div><details class="inner"><summary>Граммовка</summary><ul><li>Скумбрия — 180–220 г</li><li>Огурец — 150 г</li><li>Зелень — 20–30 г</li><li>Оливковое масло — 15 г</li></ul></details><details class="inner"><summary>Рецепт</summary><ol><li>Скумбрию посолить.</li><li>Запечь 20–25 минут при 180–190°C.</li><li>Огурец и зелень нарезать.</li><li>Заправить оливковым маслом.</li></ol></details></div>
-      <p class="note">Фокус дня: жирная рыба вечером. Перекусы не нужны, если обед был нормальный.</p>
-    </div>
-  </details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Вторник</div><div class="day-short">Индейка / кефаль</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Индейка с грибами и сливками</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Кефаль + огурец с укропом</div></div></div></div></details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Среда</div><div class="day-short">Свинина / омлет</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Свинина + цветная капуста</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Омлет + сыр + зелень</div></div></div></div></details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Четверг</div><div class="day-short">Курица / ставрида</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Курица в сливках + кабачок</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Ставрида + зелёный салат</div></div></div></div></details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Пятница</div><div class="day-short">Свинина / форель</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Свинина + грибы</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Форель + зелень</div></div></div></div></details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Суббота</div><div class="day-short">Курица / авокадо</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Куриное бедро + салат</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Сыр + орехи + авокадо</div></div></div></div></details>
-  <details class="day"><summary><div class="day-title"><div class="day-name">Воскресенье</div><div class="day-short">Индейка / омлет</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Кофе + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Индейка + кабачок</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Омлет + сыр + зелень</div></div></div></div></details>
+<section class="hero"><div class="logo"><div class="logo-mark">🥑</div><div><h1>Кето меню для Светули от Максима</h1><p class="subtitle">Меню на неделю. Завтрак, обед и ужин по времени.</p></div></div><div class="badges"><div class="badge">☕ 9:00 — капучино + кетобомбы</div><div class="badge">🍽 12:00 — обед</div><div class="badge">🌙 18:00 — ужин</div></div></section>
+<section class="section"><h2 class="section-title">Открыть день</h2>
+<details class="day" open><summary><div class="day-title"><div class="day-name">Понедельник</div><div class="day-short">Курица / скумбрия</div></div><div class="arrow">›</div></summary><div class="day-body"><img src="images/monday.png" alt="Понедельник: капучино, кетобомбы, курица с кабачком, скумбрия и салат" class="day-img"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Куриные бёдра + кабачок</div></div><details class="inner"><summary>Граммовка</summary><ul><li>Куриное бедро без кости — 180–220 г</li><li>Кабачок — 180–220 г</li><li>Сливочное масло — 20–25 г</li><li>Оливковое масло — 10 г</li></ul></details><details class="inner"><summary>Рецепт</summary><ol><li>Разогреть сковороду.</li><li>Обжарить курицу до корочки.</li><li>Добавить кабачок крупными полукольцами.</li><li>В конце добавить сливочное масло.</li></ol></details></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Скумбрия + салат</div></div><details class="inner"><summary>Граммовка</summary><ul><li>Скумбрия — 180–220 г</li><li>Огурец — 150 г</li><li>Зелень — 20–30 г</li><li>Оливковое масло — 15 г</li></ul></details><details class="inner"><summary>Рецепт</summary><ol><li>Скумбрию посолить.</li><li>Запечь 20–25 минут при 180–190°C.</li><li>Огурец и зелень нарезать.</li><li>Заправить оливковым маслом.</li></ol></details></div><p class="note">Фокус дня: жирная рыба вечером. Перекусы не нужны, если обед был нормальный.</p></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Вторник</div><div class="day-short">Индейка / кефаль</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Индейка с грибами и сливками</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Кефаль + огурец с укропом</div></div></div></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Среда</div><div class="day-short">Свинина / омлет</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Свинина + цветная капуста</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Омлет + сыр + зелень</div></div></div></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Четверг</div><div class="day-short">Курица / ставрида</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Курица в сливках + кабачок</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Ставрида + зелёный салат</div></div></div></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Пятница</div><div class="day-short">Свинина / форель</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Свинина + грибы</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Форель + зелень</div></div></div></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Суббота</div><div class="day-short">Курица / авокадо</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Куриное бедро + салат</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Сыр + орехи + авокадо</div></div></div></div></details>
+<details class="day"><summary><div class="day-title"><div class="day-name">Воскресенье</div><div class="day-short">Индейка / омлет</div></div><div class="arrow">›</div></summary><div class="day-body"><div class="meal"><div class="meal-head"><div class="time">9:00</div><div class="meal-title">Капучино + кетобомбы</div></div></div><div class="meal"><div class="meal-head"><div class="time">12:00</div><div class="meal-title">Индейка + кабачок</div></div></div><div class="meal"><div class="meal-head"><div class="time">18:00</div><div class="meal-title">Омлет + сыр + зелень</div></div></div></div></details>
 </section>
 <section class="section" id="shop"><h2 class="section-title">Список закупки</h2><div class="shop-grid"><div class="shop-card"><h3>Белок</h3><ul><li>Яйца</li><li>Куриные бёдра</li><li>Индейка</li><li>Свинина</li><li>Скумбрия</li><li>Кефаль</li><li>Ставрида</li><li>Форель</li></ul></div><div class="shop-card"><h3>Жиры</h3><ul><li>Сливочное масло</li><li>Оливковое масло</li><li>Сыр</li><li>Сливки 30–33%</li><li>Авокадо</li><li>Орехи</li></ul></div><div class="shop-card"><h3>Овощи и зелень</h3><ul><li>Кабачки</li><li>Огурцы</li><li>Цветная капуста</li><li>Грибы</li><li>Укроп</li><li>Петрушка</li><li>Листовой салат</li></ul></div></div></section>
+<footer class="footer"><div>© 2026 Максим. Все права защищены.</div><div>Страница создана с любовью для <strong>Светули</strong> от <strong>Максима</strong>.</div></footer>
 </main>
 <nav class="bottom-nav"><a href="#top">↑ К меню</a><a class="secondary" href="#shop">🛒 Закупка</a></nav>
 </body>
