@@ -6,83 +6,874 @@
 <title>Кето меню — Анапа</title>
 
 <style>
-body{margin:0;font-family:-apple-system;background:#f4efe6}
-.wrap{max-width:720px;margin:auto;padding:16px}
-.card{background:white;border-radius:20px;padding:18px;margin-bottom:14px}
-.btn{display:block;background:#dfeae2;padding:14px;border-radius:14px;margin-bottom:10px;text-decoration:none;color:black}
-details{background:#f7f7f7;border-radius:14px;padding:12px;margin-bottom:10px}
-summary{font-weight:700}
-.meal{margin:10px 0}
-.time{font-weight:700}
+:root{
+  --bg:#f4efe6;
+  --card:#fffaf2;
+  --white:#ffffff;
+  --text:#1f1f1f;
+  --muted:#6f766f;
+  --green:#2f6f4e;
+  --green-soft:#e4f1e8;
+  --orange:#d98b3a;
+  --line:#eadfce;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left,#eef7ec 0,#f4efe6 36%,#f4efe6 100%);
+  color:var(--text);
+}
+
+.wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:18px 14px 92px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#ffffff 0%,#fff6e8 56%,#eaf5ec 100%);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:24px 20px;
+  margin-bottom:16px;
+  box-shadow:0 14px 34px rgba(63,45,24,.08);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.logo-mark{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:var(--green-soft);
+  font-size:32px;
+}
+
+h1{
+  margin:0;
+  font-size:34px;
+  line-height:1.05;
+  letter-spacing:-.8px;
+}
+
+.subtitle{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+
+.badge{
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 12px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.section{
+  background:rgba(255,255,255,.82);
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 8px 24px rgba(63,45,24,.06);
+}
+
+.section-title{
+  margin:0 0 12px;
+  font-size:20px;
+}
+
+.day{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:22px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+
+.day > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.day > summary::-webkit-details-marker{
+  display:none;
+}
+
+.day-title{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.day-name{
+  font-size:20px;
+  font-weight:800;
+}
+
+.day-short{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.arrow{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--green-soft);
+  color:var(--green);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  flex:0 0 auto;
+}
+
+.day[open] .arrow{
+  transform:rotate(90deg);
+}
+
+.day-body{
+  padding:0 16px 16px;
+}
+
+.meal{
+  background:#fbf7ef;
+  border:1px solid #efe4d4;
+  border-radius:18px;
+  padding:14px;
+  margin:10px 0;
+}
+
+.meal-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.time{
+  background:var(--green);
+  color:white;
+  border-radius:999px;
+  padding:6px 10px;
+  font-weight:800;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+.meal-title{
+  font-size:17px;
+  font-weight:800;
+}
+
+.inner{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 12px;
+  margin-top:8px;
+}
+
+.inner summary{
+  cursor:pointer;
+  font-weight:800;
+}
+
+.inner ul,
+.inner ol{
+  margin:9px 0 0;
+  padding-left:20px;
+}
+
+.note{
+  color:var(--muted);
+  font-size:14px;
+  margin:10px 2px 0;
+}
+
+.shop-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.shop-card{
+  background:#fbf7ef;
+  border:1px solid #efe4d4;
+  border-radius:18px;
+  padding:14px;
+}
+
+.shop-card h3{
+  margin:0 0 8px;
+}
+
+.shop-card ul{
+  margin:0;
+  padding-left:20px;
+}
+
+.bottom-nav{
+  position:fixed;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  max-width:736px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  z-index:20;
+}
+
+.bottom-nav a{
+  text-decoration:none;
+  text-align:center;
+  background:var(--green);
+  color:white;
+  border-radius:16px;
+  padding:14px 10px;
+  font-weight:800;
+  box-shadow:0 10px 22px rgba(47,111,78,.25);
+}
+
+.bottom-nav a.secondary{
+  background:#ffffff;
+  color:var(--green);
+  border:1px solid var(--line);
+}
+
+@media (min-width:680px){
+  .wrap{
+    padding:28px 20px 100px;
+  }
+  h1{
+    font-size:44px;
+  }
+  .shop-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<main class="wrap" id="top">
 
-<div class="card">
-<h1>🥑 Кето меню — Анапа</h1>
-Обед 12:00 · Ужин 18:00 · Без говядины
-</div>
+<section class="hero">
+  <div class="logo">
+    <div class="logo-mark">🥑</div>
+    <div>
+      <h1>Кето меню — Анапа</h1>
+      <p class="subtitle">Меню на неделю. Завтрак, обед и ужин по времени.</p>
+    </div>
+  </div>
 
-<div class="card">
+  <div class="badges">
+    <div class="badge">☕ 9:00 — кофе + кетобомбы</div>
+    <div class="badge">🍽 12:00 — обед</div>
+    <div class="badge">🌙 18:00 — ужин</div>
+  </div>
+</section>
 
-<details open>
-<summary>Понедельник</summary>
+<section class="section">
+  <h2 class="section-title">Открыть день</h2>
 
-<div class="meal">
-<div class="time">12:00 Курица + кабачок</div>
-<details><summary>Граммовка</summary>Курица 200г · Кабачок 200г · Масло 20г</details>
-<details><summary>Рецепт</summary>Обжарить курицу → добавить кабачок → масло</details>
-</div>
+  <details class="day" open>
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Понедельник</div>
+        <div class="day-short">Курица / скумбрия</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
 
-<div class="meal">
-<div class="time">18:00 Скумбрия + салат</div>
-<details><summary>Граммовка</summary>Скумбрия 200г · Огурец 150г</details>
-</div>
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
 
-</details>
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Куриные бёдра + кабачок</div>
+        </div>
 
-<details>
-<summary>Вторник</summary>
-12:00 Индейка + грибы<br>
-18:00 Кефаль + огурец
-</details>
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Куриное бедро без кости — 180–220 г</li>
+            <li>Кабачок — 180–220 г</li>
+            <li>Сливочное масло — 20–25 г</li>
+            <li>Оливковое масло — 10 г</li>
+          </ul>
+        </details>
 
-<details>
-<summary>Среда</summary>
-12:00 Свинина + капуста<br>
-18:00 Омлет + сыр
-</details>
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Разогреть сковороду.</li>
+            <li>Обжарить курицу до корочки.</li>
+            <li>Добавить кабачок крупными полукольцами.</li>
+            <li>В конце добавить сливочное масло.</li>
+          </ol>
+        </details>
+      </div>
 
-<details>
-<summary>Четверг</summary>
-12:00 Курица в сливках<br>
-18:00 Ставрида + салат
-</details>
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Скумбрия + салат</div>
+        </div>
 
-<details>
-<summary>Пятница</summary>
-12:00 Свинина + грибы<br>
-18:00 Форель
-</details>
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Скумбрия — 180–220 г</li>
+            <li>Огурец — 150 г</li>
+            <li>Зелень — 20–30 г</li>
+            <li>Оливковое масло — 15 г</li>
+          </ul>
+        </details>
 
-<details>
-<summary>Суббота</summary>
-12:00 Курица + салат<br>
-18:00 Авокадо + сыр + орехи
-</details>
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Скумбрию посолить.</li>
+            <li>Запечь 20–25 минут при 180–190°C.</li>
+            <li>Огурец и зелень нарезать.</li>
+            <li>Заправить оливковым маслом.</li>
+          </ol>
+        </details>
+      </div>
 
-<details>
-<summary>Воскресенье</summary>
-12:00 Индейка + кабачок<br>
-18:00 Омлет
-</details>
+      <p class="note">Фокус дня: жирная рыба вечером. Перекусы не нужны, если обед был нормальный.</p>
+    </div>
+  </details>
 
-</div>
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Вторник</div>
+        <div class="day-short">Индейка / кефаль</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
 
-</div>
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Индейка с грибами и сливками</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Индейка — 180–220 г</li>
+            <li>Грибы — 150–200 г</li>
+            <li>Сливки 30–33% — 50–70 мл</li>
+            <li>Сливочное масло — 20 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Индейку нарезать кусками.</li>
+            <li>Обжарить на сливочном масле.</li>
+            <li>Добавить грибы.</li>
+            <li>Влить сливки и тушить 5–7 минут.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Кефаль + огурец с укропом</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Кефаль — 180–220 г</li>
+            <li>Огурец — 150 г</li>
+            <li>Укроп — 10–15 г</li>
+            <li>Оливковое масло — 15 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Рыбу посолить.</li>
+            <li>Жарить на гриле или сковороде до готовности.</li>
+            <li>Огурец нарезать.</li>
+            <li>Добавить укроп и оливковое масло.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Среда</div>
+        <div class="day-short">Свинина / омлет</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
+
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Свинина + цветная капуста</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Свинина, лучше шея — 170–220 г</li>
+            <li>Цветная капуста — 180–220 г</li>
+            <li>Сливочное масло — 25 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Свинину нарезать кусками.</li>
+            <li>Обжарить до корочки.</li>
+            <li>Цветную капусту отварить или обжарить.</li>
+            <li>Добавить сливочное масло.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Омлет + сыр + зелень</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Яйца — 3 шт.</li>
+            <li>Сыр — 40–50 г</li>
+            <li>Сливочное масло — 15–20 г</li>
+            <li>Зелень — 20 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Яйца слегка взбить.</li>
+            <li>Сковороду смазать сливочным маслом.</li>
+            <li>Вылить яйца.</li>
+            <li>Добавить сыр и зелень.</li>
+            <li>Готовить под крышкой 3–5 минут.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Четверг</div>
+        <div class="day-short">Курица / ставрида</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
+
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Курица в сливках + кабачок</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Курица — 180–220 г</li>
+            <li>Кабачок — 180–220 г</li>
+            <li>Сливки 30–33% — 50–70 мл</li>
+            <li>Сливочное масло — 20 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Курицу обжарить на масле.</li>
+            <li>Добавить кабачок.</li>
+            <li>Влить сливки.</li>
+            <li>Тушить 7–10 минут.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Ставрида + зелёный салат</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Ставрида — 180–220 г</li>
+            <li>Листовой салат — 60–80 г</li>
+            <li>Огурец — 100 г</li>
+            <li>Оливковое масло — 15 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Ставридку посолить.</li>
+            <li>Жарить на сковороде до готовности.</li>
+            <li>Салат и огурец нарезать.</li>
+            <li>Заправить маслом.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Пятница</div>
+        <div class="day-short">Свинина / форель</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
+
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Свинина + грибы</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Свинина — 170–220 г</li>
+            <li>Грибы — 180–220 г</li>
+            <li>Сливочное масло — 25 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Свинину обжарить до корочки.</li>
+            <li>Грибы нарезать крупно.</li>
+            <li>Добавить к мясу.</li>
+            <li>В конце добавить сливочное масло.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Форель + зелень</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Форель — 180–220 г</li>
+            <li>Сливочное масло — 15–20 г</li>
+            <li>Зелень — 20–30 г</li>
+            <li>Огурец — 100–150 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Форель посолить.</li>
+            <li>Положить кусочек масла сверху.</li>
+            <li>Запечь 15–20 минут при 180°C.</li>
+            <li>Подать с зеленью и огурцом.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Суббота</div>
+        <div class="day-short">Курица / авокадо</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
+
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Куриное бедро + салат</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Куриное бедро — 180–220 г</li>
+            <li>Огурец — 150 г</li>
+            <li>Зелень — 20–30 г</li>
+            <li>Оливковое масло — 15 г</li>
+            <li>Сливочное масло для жарки — 15–20 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Куриное бедро обжарить на сливочном масле.</li>
+            <li>Огурец и зелень нарезать.</li>
+            <li>Салат заправить оливковым маслом.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Сыр + орехи + авокадо</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Сыр — 50–70 г</li>
+            <li>Орехи — 15–20 г</li>
+            <li>Авокадо — 1/2–1 шт.</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Авокадо нарезать.</li>
+            <li>Сыр нарезать кубиками.</li>
+            <li>Орехи отмерить, не есть из пакета.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary>
+      <div class="day-title">
+        <div class="day-name">Воскресенье</div>
+        <div class="day-short">Индейка / омлет</div>
+      </div>
+      <div class="arrow">›</div>
+    </summary>
+
+    <div class="day-body">
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">9:00</div>
+          <div class="meal-title">Кофе + кетобомбы</div>
+        </div>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">12:00</div>
+          <div class="meal-title">Индейка + кабачок</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Индейка — 180–220 г</li>
+            <li>Кабачок — 180–220 г</li>
+            <li>Сливочное масло — 20–25 г</li>
+            <li>Оливковое масло — 10 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Индейку нарезать кусками.</li>
+            <li>Обжарить на сливочном масле.</li>
+            <li>Кабачок нарезать полукольцами.</li>
+            <li>Добавить к индейке и довести до готовности.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="meal">
+        <div class="meal-head">
+          <div class="time">18:00</div>
+          <div class="meal-title">Омлет + сыр + зелень</div>
+        </div>
+
+        <details class="inner">
+          <summary>Граммовка</summary>
+          <ul>
+            <li>Яйца — 3 шт.</li>
+            <li>Сыр — 40–50 г</li>
+            <li>Сливочное масло — 15–20 г</li>
+            <li>Зелень — 20 г</li>
+          </ul>
+        </details>
+
+        <details class="inner">
+          <summary>Рецепт</summary>
+          <ol>
+            <li>Яйца взбить.</li>
+            <li>Сковороду смазать маслом.</li>
+            <li>Добавить сыр.</li>
+            <li>Готовить под крышкой.</li>
+            <li>Посыпать зеленью.</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section class="section" id="shop">
+  <h2 class="section-title">Список закупки</h2>
+
+  <div class="shop-grid">
+    <div class="shop-card">
+      <h3>Белок</h3>
+      <ul>
+        <li>Яйца</li>
+        <li>Куриные бёдра</li>
+        <li>Индейка</li>
+        <li>Свинина</li>
+        <li>Скумбрия</li>
+        <li>Кефаль</li>
+        <li>Ставрида</li>
+        <li>Форель</li>
+      </ul>
+    </div>
+
+    <div class="shop-card">
+      <h3>Жиры</h3>
+      <ul>
+        <li>Сливочное масло</li>
+        <li>Оливковое масло</li>
+        <li>Сыр</li>
+        <li>Сливки 30–33%</li>
+        <li>Авокадо</li>
+        <li>Орехи</li>
+      </ul>
+    </div>
+
+    <div class="shop-card">
+      <h3>Овощи и зелень</h3>
+      <ul>
+        <li>Кабачки</li>
+        <li>Огурцы</li>
+        <li>Цветная капуста</li>
+        <li>Грибы</li>
+        <li>Укроп</li>
+        <li>Петрушка</li>
+        <li>Листовой салат</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="#top">↑ К меню</a>
+  <a class="secondary" href="#shop">🛒 Закупка</a>
+</nav>
 
 </body>
 </html>
